@@ -101,7 +101,7 @@ function App() {
               <a className="secondary-btn" href="#contact">
                 Let’s Talk
               </a>
-              <a className="download-btn" href="/Prasanna-Karthik-Resume.txt" download>
+              <a className="download-btn" href="src/assets/23CSR164--RESUME.pdf" download>
                 Download Resume
               </a>
             </div>
