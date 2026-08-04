@@ -1,0 +1,48 @@
+PRASANNAKARTHIK S
+Aspiring Software Developer
+
+Career Objective
+Aspiring Software Developer with strong proficiency in web development and programming. Demonstrates a solid understanding of agile methodologies and the ability to design and deliver scalable solutions. Eager to contribute cutting-edge technical skills to drive innovation and organizational growth.
+
+Technical Skills
+Programming Languages: Java, C, Java SE 17
+Web Technologies: HTML, CSS
+Database: SQL, MongoDB
+Designing Tools: Canva, Figma
+Soft Skills: Teamwork, Time Management
+Area of Interest: Cloud Computing, Web Development, Operating System
+
+Education
+Kongu Engineering College
+B.E. Computer Science and Engineering
+CGPA: 7.78 (Till 6th Semester)
+
+SRV Senior Secondary School
+Higher Secondary Certificate (HSC)
+Percentage: 79.2%
+
+Projects
+1. AI Chatbot for Admission Queries
+- Designed and deployed an AI-powered chatbot for university admissions to automate query handling and streamline communication workflows.
+- Integrated NLP-based intent recognition and entity extraction to process FAQs and complex admission queries.
+
+2. Factory Management System
+- Developed a Factory Management System for a sago manufacturing unit to manage raw material intake, production tracking, inventory, and dispatch operations efficiently.
+- Automated workflow processes including batch processing, stock updates, and production reports.
+
+3. Hospital Management System
+- Developed an AI-powered chatbot to handle hospital admission queries, appointment scheduling, and patient FAQs.
+- Reduced administrative workload and response delays through automation.
+
+Achievements
+- Finalist in HackBuzz conducted by the Department of Computer Science
+- Participated in You and Me Hackathon conducted by CIT (Coimbatore Institute of Technology)
+- Won Centies Athletics Overall Championship in 2025
+- Won Silver Medal in Anna University Zonal Competition
+
+Contact
+Email: prasannakarthik11pk@gmail.com
+Phone: +91 88380 07708
+LinkedIn: https://linkedin.com/in/prasannakarthik-s-803126325/
+GitHub: https://github.com/prasannakarthik11pk-spec
+LeetCode: https://leetcode.com/u/prasannakarthik_111/
