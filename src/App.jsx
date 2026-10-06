@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Code, Database, Layout, Terminal, Mail, Phone, Download, CheckCircle, Award, Briefcase, Send, Plus } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Code, Database, Layout, Terminal, Mail, Phone, Download, CheckCircle, Award, Briefcase, Send, ChevronDown } from 'lucide-react';
 import pkimg from './assets/port pic.jpeg';
 import './App.css';
 
@@ -83,6 +84,12 @@ const pulseStat = {
 };
 
 function App() {
+  const [activeSkill, setActiveSkill] = useState(null);
+
+  const toggleSkill = (index) => {
+    setActiveSkill(activeSkill === index ? null : index);
+  };
+
   return (
     <div className="app-container">
       <motion.header
@@ -92,7 +99,7 @@ function App() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="brand">
-          PK<span className="brand-accent"></span>
+          PK<span className="brand-accent">.</span>
         </div>
         <nav className="nav-links">
           <a href="#about">About</a>
@@ -117,7 +124,7 @@ function App() {
             <motion.div variants={itemVariants} className="hero-tagline">
               Premium Software Developer
             </motion.div>
-            <motion.h1 variants={itemVariants} className="hero-title">
+            <motion.h1 variants={itemVariants} className="hero-title type-reveal">
               Crafting <span className="gradient-text">digital</span> experiences that matter.
             </motion.h1>
             <motion.p variants={itemVariants} className="hero-subtitle">
@@ -133,6 +140,7 @@ function App() {
               </a>
             </motion.div>
           </motion.div>
+
           <motion.div
             className="hero-visual"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -144,6 +152,20 @@ function App() {
             </div>
           </motion.div>
         </section>
+
+        {/* Slide-In Banner Section */}
+        <div className="welcome-banner-container" style={{ overflow: 'hidden', padding: '2rem 0', margin: '0 auto', textAlign: 'center' }}>
+          <motion.div
+            className="welcome-banner-text"
+            initial={{ x: "30vw", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 50, damping: 12, duration: 2 }}
+            style={{ fontSize: '3rem', fontWeight: 900, fontFamily: 'Outfit', color: 'var(--accent-main)', letterSpacing: '0.1em' }}
+          >
+            HELLO
+          </motion.div>
+        </div>
 
         {/* Statistics Section */}
         <section id="stats">
@@ -191,7 +213,7 @@ function App() {
           </motion.div>
         </section>
 
-        {/* Skills Section */}
+        {/* Skills Section (Accordion) */}
         <section id="skills">
           <motion.div
             className="section-header"
@@ -203,26 +225,36 @@ function App() {
             <span className="section-eyebrow">Expertise</span>
             <h2 className="section-title">Core Skills</h2>
           </motion.div>
-          <motion.div
-            className="skills-grid"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={containerVariants}
-          >
+          <div className="accordion-container">
             {skills.map((skill, index) => {
               const IconComponent = skill.icon;
+              const isActive = activeSkill === index;
               return (
-                <motion.div key={index} variants={itemVariants} className="skill-card glass-panel">
-                  <div className="skill-icon-wrapper">
-                    <IconComponent size={24} />
+                <div key={index} className="accordion-item glass-panel">
+                  <div className="accordion-header" onClick={() => toggleSkill(index)}>
+                    <div className="accordion-title">
+                      <IconComponent size={20} className="accordion-icon" />
+                      <h3>{skill.title}</h3>
+                    </div>
+                    <ChevronDown size={20} className={`accordion-caret ${isActive ? 'active' : ''}`} />
                   </div>
-                  <h3 className="skill-title">{skill.title}</h3>
-                  <p className="skill-desc">{skill.text}</p>
-                </motion.div>
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="accordion-content"
+                      >
+                        <p>{skill.text}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               )
             })}
-          </motion.div>
+          </div>
         </section>
 
         {/* Certificates */}
@@ -324,7 +356,7 @@ function App() {
           </motion.div>
         </section>
 
-        {/* Contact Form Section */}
+        {/* Advanced Contact Form Section */}
         <section id="contact-form">
           <motion.div
             className="section-header"
@@ -343,18 +375,18 @@ function App() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUp}
           >
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-              <div className="form-group">
-                <label>Name</label>
-                <input type="text" placeholder="John Doe" />
+            <form className="contact-form floating-form" onSubmit={(e) => e.preventDefault()}>
+              <div className="form-group floating-group">
+                <input type="text" id="name" placeholder=" " required />
+                <label htmlFor="name">Name</label>
               </div>
-              <div className="form-group">
-                <label>Email</label>
-                <input type="email" placeholder="john@example.com" />
+              <div className="form-group floating-group">
+                <input type="email" id="email" placeholder=" " required />
+                <label htmlFor="email">Email address</label>
               </div>
-              <div className="form-group full-width">
-                <label>Message</label>
-                <textarea rows="4" placeholder="Hello Prasannakarthik..."></textarea>
+              <div className="form-group floating-group full-width">
+                <textarea id="message" rows="5" placeholder=" " required></textarea>
+                <label htmlFor="message">Your Message...</label>
               </div>
               <button className="primary-btn submit-btn" type="submit">
                 <Send size={18} /> Send Message
