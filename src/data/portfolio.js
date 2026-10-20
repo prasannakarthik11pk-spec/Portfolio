@@ -126,15 +126,7 @@ export const projects = [
     accent: 'linear-gradient(135deg, #6366f1, #a855f7)',
     tags: ['AI', 'Scheduling', 'UX'],
   },
-  {
-    badge: 'Web App',
-    title: 'E-Commerce Dashboard',
-    description:
-      'A full-stack analytics dashboard for tracking real-time sales, revenue and customer behaviour at a glance.',
-    items: ['Real-time updates', 'Interactive visualisations', 'Secure authentication'],
-    accent: 'linear-gradient(135deg, #fbbf24, #ec4899)',
-    tags: ['React', 'Node', 'Charts'],
-  },
+  
 ];
 
 export const timeline = [
@@ -156,7 +148,7 @@ export const timeline = [
     year: '2025',
     title: 'Hackathons & Achievement',
     place: 'HackBuzz · You and Me Hackathon · CIT',
-    text: 'Finalist at HackBuzz, participant in the You and Me Hackathon at Coimbatore Institute of Technology, and winner of the Centies Athletics Overall Championship.',
+    text: 'Finalist at HackBuzz, participant in the You and Me Hackathon at Coimbatore Institute of Technology',
     type: 'achievement',
   },
   {
